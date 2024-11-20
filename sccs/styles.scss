@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$primary-font: "Roboto", sans-serif;
+$primary-color: rgb(220, 220, 220);
+$footer-background: #243043;
+$grey-color: grey;
+$white-color: white;
+$font-size-small: 12px;
+$font-size-medium: 15px;
+$font-size-large: 25px;
+
+@mixin font-style($size, $weight, $line-height: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  font-family: $primary-font;
+}
+
+@mixin transition($property, $duration) {
+  transition: $property $duration ease;
+}
+
+@mixin center-block {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+@mixin hover-color($color) {
+  &:hover {
+    color: $color;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+body {
+  background-color: $primary-color;
+  overflow: hidden;
+}
+
+.navigation {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    
+    @media(max-width:768px){
+        justify-content: center;
+        margin-left: 0;
+        margin-right: 0;
+        
+    }
+    @media(max-width:480px){
+        justify-content: center;
+        margin-left: 0;
+        margin-right: 0;
+        
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 90px;
+      @include font-style($font-size-medium, 700);
+      margin-top: 15px;
+      cursor: pointer;
+      @include hover-color($white-color);
+
+      @media(max-width:768px){
+        margin-right: 20px;
+        font-size: 20px;
+      }
+      @media(max-width:480px){
+        margin-right: 20px;
+        font-size: 16px;
+      }
+    }
+}
+
+.upper-section h1 {
+  @include font-style($font-size-large, 700, 28px);
+  margin-left: 30px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  @include transition(font-size, 0.3s);
+  @include transition(text-shadow, 0.3s);
+  cursor: pointer;
+
+  &:hover {
+    font-size: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    text-align: center;
+    font-size: 22px;
+  }
+}
+
+.widgets {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.widget {
+  background-color: $white-color;
+  margin-right: 25px;
+  margin-left: 30px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.textonimg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 700;
+  color: $white-color;
+  font-family: $primary-font;
+  text-align: center;
+}
+
+.description {
+  color: $grey-color;
+  font-weight: 700;
+  font-size: 11px;
+  font-family: $primary-font;
+  padding-top: 50px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.clock {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 20px;
+  color: $grey-color;
+  font-weight: 700;
+  font-size: 11px;
+  font-family: $primary-font;
+  padding-bottom: 40px;
+}
+
+.down-section h1 {
+  @include font-style($font-size-large, 700, 28px);
+  margin-left: 30px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  @include transition(font-size, 0.3s);
+  @include transition(text-shadow, 0.3s);
+  cursor: pointer;
+
+  &:hover {
+    font-size: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    text-align: center;
+    font-size: 22px;
+  }
+}
+
+.down-section {
+  padding: 40px;
+}
+
+.images {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}
+
+.left-side-images p {
+  position: absolute;
+  padding-top: 200px;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: $primary-font;
+  color: $white-color;
+  padding-left: 250px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.left-side-images,
+.right-side-images {
+  margin-right: 60px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    text-align: center;
+    position: relative;
+  }
+
+  @media (max-width: 480px) {
+    margin-right: 0;
+    text-align: center;
+    position: relative;
+  }
+}
+
+.right-side-images img {
+  margin-bottom: 100px;
+}
+
+.left-side-images img {
+  margin-bottom: 20px;
+}
+
+footer {
+    background-color: $footer-background;
+    width: 100%;
+    padding: 40px;
+  
+    @media (max-width: 768px) {
+      background-color: $footer-background;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 0;
+    }
+  
+    @media (max-width: 480px) {
+      background-color: $footer-background;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 0;
+    }
+  
+    .contacts {
+      display: inline-block;
+      padding-left: 130px;
+
+      p {
+        color: #818687;
+        font-size: $font-size-small;
+        font-family: $primary-font;
+        line-height: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: center;
+  
+        @include hover-color($white-color);
+  
+        @media(max-width: 768px){
+          text-align: center;
+        }
+      }
+      
+        @media (max-width: 768px) {
+            padding-left: 0;
+            text-align: center;
+        }
+        @media (max-width: 480px) {
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+  
+    .textdiv {
+        display: inline-block;
+        color: #818687;
+        font-size: 12px;
+        font-family: "Roboto", sans-serif;
+        line-height: 14px;
+        font-weight: 700;
+        vertical-align: top;
+        padding-left: 100px;
+  
+      @media (max-width: 768px) {
+        text-align: center;
+        padding: 10px 0;
+      }
+  
+      @media (max-width: 480px) {
+        text-align: center;
+        padding: 10px 0;
+      }
+    }
+    .logo {
+        padding-top: 70px;
+        padding-left: 150px;
+
+        cursor: pointer;
+        @media (max-width: 768px) {
+            text-align: center;
+            padding: 10px 0;
+          }
+      
+        @media (max-width: 480px) {
+            text-align: center;
+            padding: 10px 0;
+        }
+    }
+
+}
